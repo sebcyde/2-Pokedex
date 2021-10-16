@@ -1,0 +1,92 @@
+html {
+	width: 100%;
+	height: 100%;
+	font-size: 62%;
+	text-align: center;
+}
+
+body {
+	max-width: 1260px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	overflow-x: hidden;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Geo', sans-serif;
+
+	section.RightSection {
+		@media (max-width: 425px) {
+			display: none;
+		}
+		background: rgb(130, 0, 0);
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+	section.LeftSection {
+		background: rgb(0, 0, 128);
+		background: url(https://img.freepik.com/free-vector/dark-gray-technology-hexagon-honeycomb-seamless-pattern_87543-575.jpg?size=626&ext=jpg);
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		overflow: scroll;
+		scrollbar-width: thin;
+	}
+}
+
+.ExtraContentHidden {
+	display: none;
+}
+.ExtraContentShown {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+}
+
+div.PokeCard {
+	overflow: hidden;
+	position: relative;
+	width: 90%;
+	height: 10rem;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border: 2px outset silver;
+	border-top-right-radius: 25px;
+	background-size: cover;
+	background-image: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
+
+	img {
+		height: 80%;
+		width: auto;
+		margin-left: 2em;
+	}
+
+	span {
+		width: 80%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	h3 {
+		font-size: 3em;
+	}
+}
+
+div.PokeCard:hover {
+	border: 3px outset tomato;
+	width: 94%;
+	height: 14rem;
+	cursor: pointer;
+	h3 {
+		font-size: 4em;
+	}
+}
