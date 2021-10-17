@@ -107,7 +107,7 @@ axios
 									.then((results) => {
 										document.querySelector('.RightTypes').innerHTML = '';
 
-										console.log(results);
+										console.log(results.data);
 										const Info = results.data;
 
 										document.querySelector(
@@ -137,6 +137,29 @@ axios
 											RT2.classList.add(Info.types[1].type.name);
 											document.querySelector('.RightTypes').appendChild(RT2);
 											RT2.innerText = Info.types[1].type.name;
+										}
+
+										document.querySelector(
+											'.BXP'
+										).innerText = `Base XP: ${Info.base_experience}`;
+										document.querySelector(
+											'.H'
+										).innerText = `Height: ${Info.height}`;
+										document.querySelector(
+											'.W'
+										).innerText = `Weight: ${Info.weight}`;
+
+										for (
+											let index = 0;
+											index < Info.abilities.length;
+											index++
+										) {
+											const Ab = document.createElement('p');
+											Ab.classList.add('Ability');
+											Ab.innerText = Info.abilities[index].ability.name;
+											document
+												.querySelector('.RightRightStats')
+												.appendChild(Ab);
 										}
 									})
 									.catch((err) => {
