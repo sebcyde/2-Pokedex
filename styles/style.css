@@ -95,11 +95,16 @@ div.PokeCard span {
 div.PokeCard span > h3 {
   font-size: 3em;
   margin-left: 0.3em;
+  display: flex;
+  align-items: center;
 }
 div.PokeCard span div.PokemonTypes {
   margin-left: auto;
   margin-right: 3em;
   width: 7em;
+}
+div.PokeCard span div.PokemonTypes h4 {
+  width: 100%;
 }
 
 div.PokeCard:hover {

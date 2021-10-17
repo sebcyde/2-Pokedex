@@ -97,12 +97,17 @@ div.PokeCard {
 		> h3 {
 			font-size: 3em;
 			margin-left: 0.3em;
+			display: flex;
+			align-items: center;
 		}
 
 		div.PokemonTypes {
 			margin-left: auto;
 			margin-right: 3em;
 			width: 7em;
+			h4 {
+				width: 100%;
+			}
 		}
 	}
 }

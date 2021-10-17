@@ -30,7 +30,9 @@ axios
 				PokeCardContainer.appendChild(PokemonSpan);
 				const PokemonName = document.createElement('h3');
 				PokemonName.classList.add('PokemonName');
-				PokemonName.innerText = Poke.name;
+				const PName = Poke.name;
+				const CappedPname = PName.charAt(0).toUpperCase() + PName.slice(1);
+				PokemonName.innerText = CappedPname;
 				PokemonNameList.push(Poke.name);
 				PokemonSpan.appendChild(PokemonName);
 				const PokemonTypes = document.createElement('div');
@@ -38,7 +40,7 @@ axios
 				PokemonSpan.appendChild(PokemonTypes);
 				const PokemonEntryNumber = document.createElement('h4');
 				PokemonEntryNumber.classList.add('EntryNumber');
-				PokemonEntryNumber.innerText = `PokeDex # ${RawPokeData.id}`;
+				PokemonEntryNumber.innerText = ` #${RawPokeData.id}`;
 				PokDexEntryNumbers.push(RawPokeData.id);
 				PokemonTypes.appendChild(PokemonEntryNumber);
 				const PokemonType1 = document.createElement('h4');
