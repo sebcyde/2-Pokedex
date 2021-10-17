@@ -23,6 +23,9 @@ body section.RightSection {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 @media (max-width: 767px) {
   body section.RightSection {
@@ -39,19 +42,71 @@ body section.RightSection div.PokeDetailContainer {
   margin-top: 10%;
   margin-bottom: 10%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 2px outset silver;
   border-top-right-radius: 25px;
   background-size: cover;
   background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
 }
-body section.RightSection div.LoadingContent {
+body section.RightSection div.PokeDetailContainer .RightEntryNumber {
+  margin-top: 1.6em;
+}
+body section.RightSection div.PokeDetailContainer .RightPokemonName {
+  font-size: 5em;
+}
+body section.RightSection div.PokeDetailContainer .RightTypes {
+  width: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.6em;
+}
+body section.RightSection div.PokeDetailContainer .RightTypes div {
+  height: 1.4em;
+  width: 40%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 0.5em;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+  border-radius: 3px;
 }
-body section.RightSection div.LoadingContent #RightLoadingSignal {
+body section.RightSection div.PokeDetailContainer .RightImage {
+  width: 60%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+body section.RightSection div.PokeDetailContainer .RightStats {
+  display: flex;
+  flex-direction: row;
+}
+body section.RightSection div.PokeDetailContainer .RightLeftStats {
+  width: 100%;
+  float: left;
+  background-color: red;
+}
+body section.RightSection div.PokeDetailContainer .RightRightStats {
+  width: 100%;
+  float: right;
+  background-color: blue;
+}
+body section.RightSection div.PokeDetailContainer .carousel-item img {
+  height: auto;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+body section.RightSection #RightLoadingSignal {
   margin-left: auto;
   margin-right: auto;
 }
@@ -129,7 +184,7 @@ div.PokeCard span div.PokemonTypes h4 {
   width: 100%;
 }
 div.PokeCard .EDDiv {
-  display: flex;
+  display: block;
   flex-direction: row;
   justify-content: space-evenly;
 }
@@ -158,74 +213,114 @@ div.Selected h3 {
 
 .normal {
   background-color: #6d6d6d;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .fire {
   background-color: #ff5900;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .water {
   background-color: #0089d3;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .grass {
   background-color: #00af00;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .electric {
   background-color: #ebeb00;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black;
 }
 
 .ice {
   background-color: #5cffff;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .fighting {
   background-color: #a20000;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .poison {
   background-color: #6b006b;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .ground {
   background-color: #d09b66;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .flying {
   background-color: #bdbdfa;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black;
 }
 
 .psychic {
   background-color: #fa4866;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .bug {
   background-color: #7daa50;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .rock {
   background-color: sienna;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .ghost {
   background-color: #2c152c;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .dark {
   background-color: #272723;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .dragon {
   background-color: #2b0080;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .steel {
   background-color: silver;
+  border: 1px solid black;
+  color: black;
+  border-radius: 3px;
 }
 
 .fairy {
   background-color: pink;
+  border: 1px solid black;
+  color: black;
+  border-radius: 3px;
 }
 
 #LoadingSignal {

@@ -72,19 +72,19 @@ axios
 				EDDiv.appendChild(Weight);
 				PokeCard.appendChild(EDDiv);
 
-				PokeCard.appendChild(EDDiv);
 				window.addEventListener('click', () => {
 					if (PokeCard.classList.contains('Selected')) {
 						PokeCard.classList.remove('Selected');
 						EDDiv.classList.add('Hidden');
 					}
 				});
+
 				PokeCard.addEventListener('click', (event) => {
 					event.stopPropagation();
 					const AllPokeCards = document.querySelectorAll('div.PokeCard');
 					const AllEDDivs = document.querySelectorAll('div.SelectedMarker');
-					// console.log(AllPokeCards);
-					console.log(AllEDDivs);
+					console.log(AllPokeCards);
+
 					Array.from(AllPokeCards).map((PCard) => {
 						if (PCard.classList.contains('Selected')) {
 							PCard.classList.remove('Selected');
@@ -106,6 +106,19 @@ axios
 		});
 		console.log(PokemonNameList);
 		console.log(PokDexEntryNumbers);
+
+		// Right Section Logic
+
+		// const AllPokeCards = document.querySelectorAll('div.PokeCard');
+		// console.log(AllPokeCards);
+
+		// Array.from(AllPokeCards).map((PCard) => {
+		// 	if (PCard.classList.contains('Selected')) {
+		// 		document.querySelector('#RightLoadSignal').classList.add('Hidden');
+		// 		const RightImage = document.createElement('img');
+		// 		RightImage.src =
+		// 	}
+		// });
 	})
 	.catch((error) => {
 		console.log(error);
