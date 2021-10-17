@@ -3,7 +3,7 @@
 axios
 	.get('https://pokeapi.co/api/v2/pokemon?limit=1118')
 	.then((results) => {
-		const PokDexEntryNumbers = [];
+		const PokeDexEntryNumbers = [];
 		const PokemonNameList = [];
 
 		let RawResults = results.data.results;
@@ -17,6 +17,7 @@ axios
 			PokeCardContainer.classList.add('PokeCardContainer');
 			axios.get(`https://pokeapi.co/api/v2/pokemon/${x}`).then((results) => {
 				const RawPokeData = results.data;
+				console.log(RawPokeData);
 				const PokeCard = document.createElement('div');
 				PokeCard.classList.add('PokeCard');
 				PokeCardContainer.appendChild(PokeCard);
@@ -41,7 +42,7 @@ axios
 				const PokemonEntryNumber = document.createElement('h4');
 				PokemonEntryNumber.classList.add('EntryNumber');
 				PokemonEntryNumber.innerText = ` #${RawPokeData.id}`;
-				PokDexEntryNumbers.push(RawPokeData.id);
+				PokeDexEntryNumbers.push(RawPokeData.id);
 				PokemonTypes.appendChild(PokemonEntryNumber);
 				const PokemonType1 = document.createElement('h4');
 				PokemonType1.classList.add('Type1');
@@ -56,6 +57,50 @@ axios
 					PokemonTypes.appendChild(PokemonType2);
 				}
 				PokeCard.appendChild(PokemonSpan);
+				const EDDiv = document.createElement('div');
+				EDDiv.classList.add('SelectedMarker');
+
+				EDDiv.classList.add('Hidden');
+				const BaseXP = document.createElement('h5');
+				BaseXP.innerText = `Base XP: ${RawPokeData.base_experience}`;
+				EDDiv.appendChild(BaseXP);
+				const Height = document.createElement('h5');
+				Height.innerText = `Height: ${RawPokeData.height}`;
+				EDDiv.appendChild(Height);
+				const Weight = document.createElement('h5');
+				Weight.innerText = `Weight: ${RawPokeData.weight}`;
+				EDDiv.appendChild(Weight);
+				PokeCard.appendChild(EDDiv);
+
+				PokeCard.appendChild(EDDiv);
+				window.addEventListener('click', () => {
+					if (PokeCard.classList.contains('Selected')) {
+						PokeCard.classList.remove('Selected');
+						EDDiv.classList.add('Hidden');
+					}
+				});
+				PokeCard.addEventListener('click', (event) => {
+					event.stopPropagation();
+					const AllPokeCards = document.querySelectorAll('div.PokeCard');
+					const AllEDDivs = document.querySelectorAll('div.SelectedMarker');
+					// console.log(AllPokeCards);
+					console.log(AllEDDivs);
+					Array.from(AllPokeCards).map((PCard) => {
+						if (PCard.classList.contains('Selected')) {
+							PCard.classList.remove('Selected');
+							Array.from(AllEDDivs).map((EDivs) => {
+								EDivs.classList.add('Hidden');
+								EDivs.classList.remove('EDDiv');
+							});
+						}
+					});
+
+					if (!PokeCard.classList.contains('Selected')) {
+						PokeCard.classList.add('Selected');
+						EDDiv.classList.remove('Hidden');
+						EDDiv.classList.add('EDDiv');
+					}
+				});
 			});
 			document.querySelector('.LeftSection').appendChild(PokeCardContainer);
 		});
@@ -65,27 +110,3 @@ axios
 	.catch((error) => {
 		console.log(error);
 	});
-
-/* <div class="PokeCardContainer">
-    <div class="PokeCard">
-        <img src="https://purepng.com/public/uploads/large/purepng.com-pokemonpokemonpocket-monsterspokemon-franchisefictional-speciesone-pokemonmany-pokemonone-pikachu-1701527784845bdjl3.png"
-            alt="">
-        <span class="Pokemon">
-            <h3 class="PokemonName">Pikachu</h3>
-            <div class="PokemonTypes">
-                <h4 class="EntryNumber">#17</h4>
-                <h4 class="Type1">Electric</h4>
-                <h4 class="Type2">Flying</h4>
-            </div>
-        </span>
-
-    </div>
-    <div class="ExtraContentHidden">
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto adipisci dolore aliquam et, ut
-            porro
-            doloremque minima ipsam rerum vel?</h4>
-        <h5>First Appeared: Sinnoh</h5>
-    </div>
-</div>
-
-*/

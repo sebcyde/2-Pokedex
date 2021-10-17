@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  max-width: 1260px;
+  max-width: 1440px;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -33,23 +33,40 @@ body section.RightSection div.PokeDetailContainer {
   overflow: hidden;
   position: relative;
   width: 90%;
-  height: 70%;
+  height: 80%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
   display: flex;
   flex-direction: row;
-  align-items: center;
   border: 2px outset silver;
   border-top-right-radius: 25px;
   background-size: cover;
-  background-image: url(https://wallpaperaccess.com/full/1634339.png);
+  background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+}
+body section.RightSection div.LoadingContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+body section.RightSection div.LoadingContent #RightLoadingSignal {
+  margin-left: auto;
+  margin-right: auto;
 }
 body section.LeftSection {
   width: 100%;
   height: 100%;
   overflow: scroll;
   scrollbar-width: thin;
+}
+body section.LeftSection .Logo {
+  height: 10em;
+  width: auto;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Hidden {
@@ -94,9 +111,14 @@ div.PokeCard span {
 }
 div.PokeCard span > h3 {
   font-size: 3em;
-  margin-left: 0.3em;
+  margin-left: 0.9em;
   display: flex;
   align-items: center;
+}
+@media (max-width: 767px) {
+  div.PokeCard span h3 {
+    margin-left: 0.3em;
+  }
 }
 div.PokeCard span div.PokemonTypes {
   margin-left: auto;
@@ -106,15 +128,31 @@ div.PokeCard span div.PokemonTypes {
 div.PokeCard span div.PokemonTypes h4 {
   width: 100%;
 }
+div.PokeCard .EDDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 div.PokeCard:hover {
   border: 3px outset tomato;
   width: 96%;
   height: 14rem;
   cursor: pointer;
-  box-shadow: 8px 8px 8px black;
+  box-shadow: 6px 6px 6px black;
 }
 div.PokeCard:hover h3 {
+  font-size: 3em;
+}
+
+div.Selected {
+  border: 3px outset tomato;
+  width: 96%;
+  height: 14rem;
+  cursor: pointer;
+  box-shadow: 6px 6px 6px black;
+}
+div.Selected h3 {
   font-size: 3em;
 }
 
@@ -195,5 +233,11 @@ div.PokeCard:hover h3 {
 }
 
 #PokeSorter {
-  margin-bottom: 4em;
+  margin-bottom: 2em;
+  height: 3em;
+  border: 2px outset silver;
+  border-top-right-radius: 10px;
+  font-size: 1.3em;
+  color: white;
+  background-image: url(https://images.stockfreeimages.com/2061/sfixl/20610111.jpg);
 }/*# sourceMappingURL=style.css.map */

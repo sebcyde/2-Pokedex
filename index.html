@@ -17,29 +17,29 @@
 
 <body>
     <section class="LeftSection">
-        <h1>Pokedex</h1>
-        <h2>Left Section</h2>
+        <img src="https://cdn2.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png" alt="PokeDex Logo" class="Logo">
 
-        <label for="PokeSorter">Sort</label>
-        <select id="PokeSorter">
-            <option value="Number Low to High">Entry Number Low to High</option>
-            <option value="Number High to Low">Entry Number High to Low</option>
-            <option value="AlphabetAZ">Alphabetical A-Z</option>
-            <option value="AlphabetZA">Alphabetical Z-A</option>
-        </select>
+
+        <div>
+            <select id="PokeSorter">
+                <option value="Entry Number Low to High">Entry Number Low to High</option>
+                <option value="Entry Number High to Low">Entry Number High to Low</option>
+                <option value="AlphabetAZ">Alphabetical A-Z</option>
+                <option value="AlphabetZA">Alphabetical Z-A</option>
+            </select>
+        </div>
+
         <div id="LoadingSignal"> <img src="/assets/LoadingSignal.gif" alt=""></div>
 
 
 
     </section>
+
     <section class="RightSection">
-        <h1>PokeDetail</h1>
-        <h2>Right Section</h2>
 
-        <div class="PokeDetailContainer">
-            <h2>Pikachu</h2>
-
-            <h3>Pokedex Entry: 17</h3>
+        <div class="PokeDetailContainer LoadingContent">
+            <div id="RightLoadingSignal"> <img src="/assets/LoadingSignal.gif" alt=""></div>
+            <!-- <h1 class="RightPokemonName col-12">Pikachu</h1> -->
 
 
         </div>
