@@ -44,11 +44,13 @@ axios
 				const PokemonType1 = document.createElement('h4');
 				PokemonType1.classList.add('Type1');
 				PokemonType1.innerText = RawPokeData.types[0].type.name;
+				PokemonType1.classList.add(RawPokeData.types[0].type.name);
 				PokemonTypes.appendChild(PokemonType1);
 				if (RawPokeData.types.length > 1) {
 					const PokemonType2 = document.createElement('h4');
 					PokemonType2.classList.add('Type2');
 					PokemonType2.innerText = RawPokeData.types[1].type.name;
+					PokemonType2.classList.add(RawPokeData.types[1].type.name);
 					PokemonTypes.appendChild(PokemonType2);
 				}
 				PokeCard.appendChild(PokemonSpan);

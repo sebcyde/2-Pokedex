@@ -78,11 +78,12 @@ div.PokeCard {
 	border: 2px outset silver;
 	border-top-right-radius: 25px;
 	background-size: cover;
+	box-shadow: 5px 5px 5px black;
 	background-image: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
 
 	img {
-		height: 80%;
-		width: auto;
+		height: auto;
+		width: 20%;
 		margin-left: 1em;
 	}
 
@@ -95,17 +96,25 @@ div.PokeCard {
 
 		> h3 {
 			font-size: 3em;
+			margin-left: 0.3em;
+		}
+
+		div.PokemonTypes {
+			margin-left: auto;
+			margin-right: 3em;
+			width: 7em;
 		}
 	}
 }
 
 div.PokeCard:hover {
 	border: 3px outset tomato;
-	width: 94%;
+	width: 96%;
 	height: 14rem;
 	cursor: pointer;
+	box-shadow: 8px 8px 8px black;
 	h3 {
-		font-size: 4em;
+		font-size: 3em;
 	}
 }
 
