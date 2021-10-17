@@ -3,7 +3,9 @@
 axios
 	.get('https://pokeapi.co/api/v2/pokemon?limit=1118')
 	.then((results) => {
-		console.log(results.data.results);
+		const PokDexEntryNumbers = [];
+		const PokemonNameList = [];
+
 		let RawResults = results.data.results;
 		const LoadingSignal = document.querySelector('#LoadingSignal');
 		LoadingSignal.classList.add('Hidden');
@@ -14,36 +16,47 @@ axios
 
 			PokeCardContainer.classList.add('PokeCardContainer');
 			axios.get(`https://pokeapi.co/api/v2/pokemon/${x}`).then((results) => {
-				console.log(results);
+				const RawPokeData = results.data;
 				const PokeCard = document.createElement('div');
 				PokeCard.classList.add('PokeCard');
 				PokeCardContainer.appendChild(PokeCard);
-				// const img =
-				// PokeCardContainer.appendChild(img);
+				const PokemonSprite = document.createElement('img');
+				PokemonSprite.src = '/assets/LoadingSignal.gif';
+
+				PokemonSprite.src = RawPokeData.sprites.front_default;
+				PokeCard.appendChild(PokemonSprite);
 				const PokemonSpan = document.createElement('span');
 				PokemonSpan.classList.add('Pokemon');
 				PokeCardContainer.appendChild(PokemonSpan);
 				const PokemonName = document.createElement('h3');
 				PokemonName.classList.add('PokemonName');
 				PokemonName.innerText = Poke.name;
+				PokemonNameList.push(Poke.name);
 				PokemonSpan.appendChild(PokemonName);
 				const PokemonTypes = document.createElement('div');
 				PokemonTypes.classList.add('PokemonTypes');
 				PokemonSpan.appendChild(PokemonTypes);
 				const PokemonEntryNumber = document.createElement('h4');
 				PokemonEntryNumber.classList.add('EntryNumber');
+				PokemonEntryNumber.innerText = `PokeDex # ${RawPokeData.id}`;
+				PokDexEntryNumbers.push(RawPokeData.id);
 				PokemonTypes.appendChild(PokemonEntryNumber);
 				const PokemonType1 = document.createElement('h4');
 				PokemonType1.classList.add('Type1');
+				PokemonType1.innerText = RawPokeData.types[0].type.name;
 				PokemonTypes.appendChild(PokemonType1);
+				if (RawPokeData.types.length > 1) {
+					const PokemonType2 = document.createElement('h4');
+					PokemonType2.classList.add('Type2');
+					PokemonType2.innerText = RawPokeData.types[1].type.name;
+					PokemonTypes.appendChild(PokemonType2);
+				}
 				PokeCard.appendChild(PokemonSpan);
-				// if () {
-				//     const PokemonType2 = document.createElement('h4').classList.add('Type2');
-				//     PokemonTypes.appendChild(PokemonType2);
-				// }
 			});
 			document.querySelector('.LeftSection').appendChild(PokeCardContainer);
 		});
+		console.log(PokemonNameList);
+		console.log(PokDexEntryNumbers);
 	})
 	.catch((error) => {
 		console.log(error);
