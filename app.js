@@ -72,15 +72,7 @@ axios
 				EDDiv.appendChild(Weight);
 				PokeCard.appendChild(EDDiv);
 
-				window.addEventListener('click', () => {
-					if (PokeCard.classList.contains('Selected')) {
-						PokeCard.classList.remove('Selected');
-						EDDiv.classList.add('Hidden');
-					}
-				});
-
 				PokeCard.addEventListener('click', (event) => {
-					event.stopPropagation();
 					const AllPokeCards = document.querySelectorAll('div.PokeCard');
 					const AllEDDivs = document.querySelectorAll('div.SelectedMarker');
 					console.log(AllPokeCards);
@@ -107,19 +99,45 @@ axios
 							if (PCard.classList.contains('Selected')) {
 								let x =
 									PCard.childNodes[1].childNodes[0].innerText.toLowerCase();
+								document.querySelector('.RightPokemonName').innerText =
+									PCard.childNodes[1].childNodes[0].innerText;
+
 								axios
 									.get(`https://pokeapi.co/api/v2/pokemon/${x}`)
 									.then((results) => {
+										document.querySelector('.RightTypes').innerHTML = '';
+
 										console.log(results);
+										const Info = results.data;
 
-										let RLS = document.querySelector('#RightLoadSignal');
+										document.querySelector(
+											'.RightEntryNumber'
+										).innerText = `Entry Number #${Info.id}`;
 
-										RLS.classList.add('Hidden');
-										// document.querySelector('FrontImage').src =
-										// 	document.querySelector('.Selected').src;
-										// document.querySelector('BackImage').src =
-										// 	document.querySelector('ShinyFront').src =
-										// 	document.querySelector('ShinyBack').src =
+										document.querySelector('.FrontImage').src =
+											Info.sprites.front_default;
+
+										document.querySelector('.BackImage').src =
+											Info.sprites.back_default;
+										document.querySelector('.ShinyFront').src =
+											Info.sprites.front_shiny;
+										document.querySelector('.ShinyBack').src =
+											Info.sprites.back_shiny;
+
+										const RT1 = document.createElement('div');
+										RT1.classList.add(Info.types[0].type.name);
+										document.querySelector('.RightTypes').appendChild(RT1);
+
+										RT1.innerText = Info.types[0].type.name;
+
+										console.log(Info.types[0].type.name);
+
+										if (Info.types.length > 1) {
+											const RT2 = document.createElement('div');
+											RT2.classList.add(Info.types[1].type.name);
+											document.querySelector('.RightTypes').appendChild(RT2);
+											RT2.innerText = Info.types[1].type.name;
+										}
 									})
 									.catch((err) => {
 										console.log(err);
