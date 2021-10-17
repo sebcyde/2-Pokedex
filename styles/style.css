@@ -18,19 +18,36 @@ body {
   font-family: "Geo", sans-serif;
 }
 body section.RightSection {
-  background: #820000;
+  background: url(https://cdn.suwalls.com/wallpapers/abstract/blue-honeycomb-pattern-47053-1920x1080.jpg);
+  background-size: cover;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  border-left: 3px inset silver;
 }
-@media (max-width: 425px) {
+@media (max-width: 767px) {
   body section.RightSection {
     display: none;
   }
 }
+body section.RightSection div.PokeDetailContainer {
+  overflow: hidden;
+  position: relative;
+  width: 90%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px outset silver;
+  border-top-right-radius: 25px;
+  background-size: st;
+  background-image: url(https://wallpaperaccess.com/full/1634339.png);
+}
 body section.LeftSection {
-  background: navy;
-  background: url(https://img.freepik.com/free-vector/dark-gray-technology-hexagon-honeycomb-seamless-pattern_87543-575.jpg?size=626&ext=jpg);
+  background: url(https://cdn.suwalls.com/wallpapers/abstract/blue-honeycomb-pattern-47053-1920x1080.jpg);
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -56,7 +73,7 @@ div.PokeCard {
   height: 10rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,7 +93,7 @@ div.PokeCard span {
   flex-direction: row;
   justify-content: space-around;
 }
-div.PokeCard h3 {
+div.PokeCard span h3 {
   font-size: 3em;
 }
 
