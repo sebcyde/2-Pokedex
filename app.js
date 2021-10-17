@@ -1,11 +1,11 @@
 // retrieve data then add entry numbers to array then create elements based on array order, can use array to sort from high to low and from low to high
 
+const PokeDexEntryNumbers = [];
+const PokemonNameList = [];
+
 axios
 	.get('https://pokeapi.co/api/v2/pokemon?limit=1118')
 	.then((results) => {
-		const PokeDexEntryNumbers = [];
-		const PokemonNameList = [];
-
 		let RawResults = results.data.results;
 		const LoadingSignal = document.querySelector('#LoadingSignal');
 		LoadingSignal.classList.add('Hidden');
@@ -17,7 +17,7 @@ axios
 			PokeCardContainer.classList.add('PokeCardContainer');
 			axios.get(`https://pokeapi.co/api/v2/pokemon/${x}`).then((results) => {
 				const RawPokeData = results.data;
-				console.log(RawPokeData);
+
 				const PokeCard = document.createElement('div');
 				PokeCard.classList.add('PokeCard');
 				PokeCardContainer.appendChild(PokeCard);
@@ -99,13 +99,38 @@ axios
 						PokeCard.classList.add('Selected');
 						EDDiv.classList.remove('Hidden');
 						EDDiv.classList.add('EDDiv');
+
+						const AllPokeCards = document.querySelectorAll('div.PokeCard');
+						console.log(AllPokeCards);
+
+						Array.from(AllPokeCards).map((PCard) => {
+							if (PCard.classList.contains('Selected')) {
+								let x =
+									PCard.childNodes[1].childNodes[0].innerText.toLowerCase();
+								axios
+									.get(`https://pokeapi.co/api/v2/pokemon/${x}`)
+									.then((results) => {
+										console.log(results);
+
+										let RLS = document.querySelector('#RightLoadSignal');
+
+										RLS.classList.add('Hidden');
+										// document.querySelector('FrontImage').src =
+										// 	document.querySelector('.Selected').src;
+										// document.querySelector('BackImage').src =
+										// 	document.querySelector('ShinyFront').src =
+										// 	document.querySelector('ShinyBack').src =
+									})
+									.catch((err) => {
+										console.log(err);
+									});
+							}
+						});
 					}
 				});
 			});
 			document.querySelector('.LeftSection').appendChild(PokeCardContainer);
 		});
-		console.log(PokemonNameList);
-		console.log(PokDexEntryNumbers);
 
 		// Right Section Logic
 
@@ -114,11 +139,28 @@ axios
 
 		// Array.from(AllPokeCards).map((PCard) => {
 		// 	if (PCard.classList.contains('Selected')) {
-		// 		document.querySelector('#RightLoadSignal').classList.add('Hidden');
-		// 		const RightImage = document.createElement('img');
-		// 		RightImage.src =
+		// 		let x = PCard.childNodes[1].childNodes[0].innerText;
+		// 		axios
+		// 			.get(`https://pokeapi.co/api/v2/${x}`)
+		// 			.then((results) => {
+		// 				console.log(results);
+
+		// 				document.querySelector('#RightLoadSignal').classList.add('Hidden');
+		// 				// document.querySelector('FrontImage').src =
+		// 				// 	document.querySelector('.Selected').src;
+		// 				// document.querySelector('BackImage').src =
+		// 				// 	document.querySelector('ShinyFront').src =
+		// 				// 	document.querySelector('ShinyBack').src =
+		// 			})
+		// 			.catch((err) => {
+		// 				console.log(err);
+		// 			});
 		// 	}
 		// });
+
+		//Sort PokeDex Logic
+		console.log(PokemonNameList);
+		console.log(PokeDexEntryNumbers);
 	})
 	.catch((error) => {
 		console.log(error);
