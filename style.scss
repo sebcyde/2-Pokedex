@@ -16,17 +16,17 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	font-family: 'Geo', sans-serif;
+	background: url(https://cdn.suwalls.com/wallpapers/abstract/blue-honeycomb-pattern-47053-1920x1080.jpg);
+	background-size: cover;
 
 	section.RightSection {
 		@media (max-width: 767px) {
 			display: none;
 		}
-		background: url(https://cdn.suwalls.com/wallpapers/abstract/blue-honeycomb-pattern-47053-1920x1080.jpg);
-		background-size: cover;
+
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
-		border-left: 3px inset silver;
 
 		div.PokeDetailContainer {
 			overflow: hidden;
@@ -42,13 +42,11 @@ body {
 			align-items: center;
 			border: 2px outset silver;
 			border-top-right-radius: 25px;
-			background-size: ;
+			background-size: cover;
 			background-image: url(https://wallpaperaccess.com/full/1634339.png);
 		}
 	}
 	section.LeftSection {
-		background: url(https://cdn.suwalls.com/wallpapers/abstract/blue-honeycomb-pattern-47053-1920x1080.jpg);
-		background-size: cover;
 		width: 100%;
 		height: 100%;
 		overflow: scroll;
@@ -56,7 +54,7 @@ body {
 	}
 }
 
-.ExtraContentHidden {
+.Hidden {
 	display: none;
 }
 .ExtraContentShown {
@@ -181,4 +179,12 @@ div.PokeCard:hover {
 
 .fairy {
 	background-color: pink;
+}
+
+#LoadingSignal {
+	margin-top: 5em;
+}
+
+#PokeSorter {
+	margin-bottom: 4em;
 }
