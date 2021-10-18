@@ -194,36 +194,13 @@ axios
 			document.querySelector('.LeftSection').appendChild(PokeCardContainer);
 
 			// const PokeSorter = document.querySelector('#MobilePokeSorter');
-			// if (isInViewport(PokeSorter) == false) {
-
+			// if (isInViewport(PokeSorter) === false) {
+			// 	document.querySelector('#mbps').classList.remove('Hidden');
+			// }
+			// if (isInViewport(PokeSorter) === true) {
+			// 	document.querySelector('#mbps').classList.add('Hidden');
 			// }
 		});
-
-		// Right Section Logic
-
-		// const AllPokeCards = document.querySelectorAll('div.PokeCard');
-		// console.log(AllPokeCards);
-
-		// Array.from(AllPokeCards).map((PCard) => {
-		// 	if (PCard.classList.contains('Selected')) {
-		// 		let x = PCard.childNodes[1].childNodes[0].innerText;
-		// 		axios
-		// 			.get(`https://pokeapi.co/api/v2/${x}`)
-		// 			.then((results) => {
-		// 				console.log(results);
-
-		// 				document.querySelector('#RightLoadSignal').classList.add('Hidden');
-		// 				// document.querySelector('FrontImage').src =
-		// 				// 	document.querySelector('.Selected').src;
-		// 				// document.querySelector('BackImage').src =
-		// 				// 	document.querySelector('ShinyFront').src =
-		// 				// 	document.querySelector('ShinyBack').src =
-		// 			})
-		// 			.catch((err) => {
-		// 				console.log(err);
-		// 			});
-		// 	}
-		// });
 
 		//Sort PokeDex Logic
 		console.log(PokemonNameList);
