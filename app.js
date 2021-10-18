@@ -96,17 +96,17 @@ axios
 					Array.from(AllPokeCards).map((PCard) => {
 						if (PCard.classList.contains('Selected')) {
 							PCard.classList.remove('Selected');
-							Array.from(AllEDDivs).map((EDivs) => {
-								EDivs.classList.add('Hidden');
-								EDivs.classList.remove('EDDiv');
-							});
+							// Array.from(AllEDDivs).map((EDivs) => {
+							// 	EDivs.classList.add('Hidden');
+							// 	EDivs.classList.remove('EDDiv');
+							// });
 						}
 					});
 
 					if (!PokeCard.classList.contains('Selected')) {
 						PokeCard.classList.add('Selected');
-						EDDiv.classList.remove('Hidden');
-						EDDiv.classList.add('EDDiv');
+						// EDDiv.classList.remove('Hidden');
+						// EDDiv.classList.add('EDDiv');
 
 						const AllPokeCards = document.querySelectorAll('div.PokeCard');
 						console.log(AllPokeCards);
@@ -192,14 +192,6 @@ axios
 				});
 			});
 			document.querySelector('.LeftSection').appendChild(PokeCardContainer);
-
-			// const PokeSorter = document.querySelector('#MobilePokeSorter');
-			// if (isInViewport(PokeSorter) === false) {
-			// 	document.querySelector('#mbps').classList.remove('Hidden');
-			// }
-			// if (isInViewport(PokeSorter) === true) {
-			// 	document.querySelector('#mbps').classList.add('Hidden');
-			// }
 		});
 
 		//Sort PokeDex Logic
