@@ -40,6 +40,7 @@ body {
 		}
 
 		div.PokeDetailContainer {
+			box-shadow: 8px 8px 8px black;
 			overflow: hidden;
 			position: relative;
 			width: 90%;
@@ -193,6 +194,7 @@ div.PokeCard {
 	background-size: cover;
 	box-shadow: 5px 5px 5px black;
 	background-image: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
+	z-index: 1;
 
 	img {
 		height: auto;
@@ -398,4 +400,56 @@ div.Selected {
 	background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
 	background-size: cover;
 	margin-bottom: 1em;
+	position: sticky;
+	top: 20px;
+}
+
+#btt {
+	@media (min-width: 767px) {
+		height: fit-content;
+		border: 2px outset silver;
+		border-top-right-radius: 10px;
+		font-size: 1.3em;
+		background-color: black;
+		color: white;
+		background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+		background-size: cover;
+		margin-bottom: 1em;
+		padding-left: 1em;
+		padding-right: 1em;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	height: fit-content;
+	border: 2px outset silver;
+	border-radius: 10px;
+	font-size: 1.3em;
+	background-color: black;
+	color: white;
+	background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+	background-size: cover;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mbps {
+	@media (min-width: 767px) {
+		position: fixed;
+		bottom: 20px;
+		width: 100%;
+		left: 0;
+		z-index: 2 !important;
+	}
+
+	position: fixed;
+	bottom: 20px;
+	width: 100%;
+	z-index: 2 !important;
 }

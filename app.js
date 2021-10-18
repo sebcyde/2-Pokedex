@@ -3,6 +3,22 @@
 const PokeDexEntryNumbers = [];
 const PokemonNameList = [];
 
+function isInViewport(element) {
+	const rect = element.getBoundingClientRect();
+	return (
+		rect.top >= 0 &&
+		rect.left >= 0 &&
+		rect.bottom <=
+			(window.innerHeight || document.documentElement.clientHeight) &&
+		rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+	);
+}
+
+document.querySelector('#mbps').addEventListener('click', () => {
+	document.querySelector('.LeftSection').scrollTo(0, 0);
+	console.log('Clicked');
+});
+
 axios
 	.get('https://pokeapi.co/api/v2/pokemon?limit=1118')
 	.then((results) => {
@@ -130,8 +146,6 @@ axios
 
 										RT1.innerText = Info.types[0].type.name;
 
-										console.log(Info.types[0].type.name);
-
 										if (Info.types.length > 1) {
 											const RT2 = document.createElement('div');
 											RT2.classList.add(Info.types[1].type.name);
@@ -178,6 +192,11 @@ axios
 				});
 			});
 			document.querySelector('.LeftSection').appendChild(PokeCardContainer);
+
+			// const PokeSorter = document.querySelector('#MobilePokeSorter');
+			// if (isInViewport(PokeSorter) == false) {
+
+			// }
 		});
 
 		// Right Section Logic

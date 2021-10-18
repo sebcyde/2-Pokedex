@@ -40,6 +40,7 @@ body section.RightSection .Logo {
   margin-right: auto;
 }
 body section.RightSection div.PokeDetailContainer {
+  box-shadow: 8px 8px 8px black;
   overflow: hidden;
   position: relative;
   width: 90%;
@@ -186,6 +187,7 @@ div.PokeCard {
   background-size: cover;
   box-shadow: 5px 5px 5px black;
   background-image: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
+  z-index: 1;
 }
 div.PokeCard img {
   height: auto;
@@ -383,9 +385,69 @@ div.Selected h3 {
   background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
   background-size: cover;
   margin-bottom: 1em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
 }
 @media (min-width: 767px) {
   #MobilePokeSorter {
     display: none;
+  }
+}
+
+#btt {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 2px outset silver;
+  border-radius: 10px;
+  font-size: 1.3em;
+  background-color: black;
+  color: white;
+  background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+  background-size: cover;
+  margin-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 767px) {
+  #btt {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border: 2px outset silver;
+    border-top-right-radius: 10px;
+    font-size: 1.3em;
+    background-color: black;
+    color: white;
+    background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+    background-size: cover;
+    margin-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+#mbps {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  z-index: 2 !important;
+}
+@media (min-width: 767px) {
+  #mbps {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+    z-index: 2 !important;
   }
 }/*# sourceMappingURL=style.css.map */
