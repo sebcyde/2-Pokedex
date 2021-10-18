@@ -149,6 +149,13 @@ axios
 											'.W'
 										).innerText = `Weight: ${Info.weight}`;
 
+										document.querySelector('.RightRightStats').innerHTML = '';
+
+										const h2 = document.createElement('h2');
+										h2.classList.add('AbilitiesHeader');
+										h2.innerText = 'Abilities';
+										document.querySelector('.RightRightStats').appendChild(h2);
+
 										for (
 											let index = 0;
 											index < Info.abilities.length;

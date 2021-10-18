@@ -24,7 +24,7 @@ body section.RightSection {
   height: 100%;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
 @media (max-width: 767px) {
@@ -32,15 +32,24 @@ body section.RightSection {
     display: none;
   }
 }
+body section.RightSection .Logo {
+  height: 10%;
+  width: auto;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+}
 body section.RightSection div.PokeDetailContainer {
   overflow: hidden;
   position: relative;
   width: 90%;
-  height: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   display: flex;
   flex-direction: column;
   border: 2px outset silver;
@@ -121,13 +130,18 @@ body section.LeftSection {
   height: 100%;
   overflow: scroll;
   scrollbar-width: thin;
+  padding-top: 3em;
 }
-body section.LeftSection .Logo {
-  height: 10em;
-  width: auto;
-  margin-top: 1em;
+body section.LeftSection .MobileLogo {
+  height: auto;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 767px) {
+  body section.LeftSection .MobileLogo {
+    display: none;
+  }
 }
 
 .Hidden {
@@ -334,11 +348,29 @@ div.Selected h3 {
 }
 
 #PokeSorter {
-  margin-bottom: 2em;
   height: 3em;
   border: 2px outset silver;
   border-top-right-radius: 10px;
   font-size: 1.3em;
+  background-color: black;
   color: white;
-  background-image: url(https://images.stockfreeimages.com/2061/sfixl/20610111.jpg);
+  background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+  background-size: cover;
+}
+
+#MobilePokeSorter {
+  height: 2.5em;
+  border: 2px outset silver;
+  border-top-right-radius: 10px;
+  font-size: 1.3em;
+  background-color: black;
+  color: white;
+  background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+  background-size: cover;
+  margin-bottom: 1em;
+}
+@media (min-width: 767px) {
+  #MobilePokeSorter {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

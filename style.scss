@@ -28,18 +28,26 @@ body {
 		height: 100%;
 		overflow: hidden;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		align-items: center;
+
+		.Logo {
+			height: 10%;
+			width: auto;
+			margin-top: 3em;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
 		div.PokeDetailContainer {
 			overflow: hidden;
 			position: relative;
 			width: 90%;
-			height: 80%;
+			height: fit-content;
 			margin-left: auto;
 			margin-right: auto;
-			margin-top: 10%;
-			margin-bottom: 10%;
+			margin-top: 5%;
+			margin-bottom: 5%;
 			display: flex;
 			flex-direction: column;
 			border: 2px outset silver;
@@ -128,11 +136,14 @@ body {
 		height: 100%;
 		overflow: scroll;
 		scrollbar-width: thin;
+		padding-top: 3em;
 
-		.Logo {
-			height: 10em;
-			width: auto;
-			margin-top: 1em;
+		.MobileLogo {
+			@media (min-width: 767px) {
+				display: none;
+			}
+			height: auto;
+			width: 70%;
 			margin-left: auto;
 			margin-right: auto;
 		}
@@ -347,11 +358,27 @@ div.Selected {
 }
 
 #PokeSorter {
-	margin-bottom: 2em;
 	height: 3em;
 	border: 2px outset silver;
 	border-top-right-radius: 10px;
 	font-size: 1.3em;
+	background-color: black;
 	color: white;
-	background-image: url(https://images.stockfreeimages.com/2061/sfixl/20610111.jpg);
+	background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+	background-size: cover;
+}
+
+#MobilePokeSorter {
+	@media (min-width: 767px) {
+		display: none;
+	}
+	height: 2.5em;
+	border: 2px outset silver;
+	border-top-right-radius: 10px;
+	font-size: 1.3em;
+	background-color: black;
+	color: white;
+	background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+	background-size: cover;
+	margin-bottom: 1em;
 }
