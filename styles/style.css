@@ -145,9 +145,9 @@ body section.LeftSection {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  overflow-x: hidden;
   scrollbar-width: thin;
   padding-top: 3em;
+  overflow-x: hidden;
 }
 body section.LeftSection .MobileLogo {
   height: auto;

@@ -155,6 +155,7 @@ body {
 		overflow: scroll;
 		scrollbar-width: thin;
 		padding-top: 3em;
+		overflow-x: hidden;
 
 		.MobileLogo {
 			@media (min-width: 767px) {
