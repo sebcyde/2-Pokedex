@@ -50,7 +50,7 @@ function Create(time) {
 							Card.parentNode.removeChild(Card);
 						});
 					}
-					results.data.results.sort();
+					results.data.results.sort((a, b) => (a.name > b.name ? 1 : -1));
 				} else if (document.querySelector('.AZ2A').selected === true) {
 					if (
 						document.querySelector('section#LeftSection').contains(PC) === true
@@ -59,8 +59,7 @@ function Create(time) {
 							Card.parentNode.removeChild(Card);
 						});
 					}
-					results.data.results.sort();
-					results.data.results.reverse();
+					results.data.results.sort((a, b) => (b.name > a.name ? 1 : -1));
 				}
 			}
 
