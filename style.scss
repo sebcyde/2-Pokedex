@@ -54,7 +54,7 @@ body {
 			border: 2px outset silver;
 			border-top-right-radius: 25px;
 			background-size: cover;
-			background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
+			background-image: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
 
 			.RightEntryNumber {
 				margin-top: 1em;
@@ -136,7 +136,7 @@ body {
 			}
 
 			.carousel-item p {
-				font-size: 3em;
+				font-size: 4em;
 			}
 
 			.carousel {
@@ -150,6 +150,24 @@ body {
 			margin-right: auto;
 		}
 	}
+
+	/* width */
+	.LeftSection::-webkit-scrollbar {
+		width: 1em;
+	}
+
+	/* Track */
+	.LeftSection::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px grey;
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	.LeftSection::-webkit-scrollbar-thumb {
+		background: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
+		border-radius: 10px;
+	}
+
 	section.LeftSection {
 		width: 100%;
 		height: 100%;

@@ -129,7 +129,7 @@ function Create(time, selector) {
 					PokeCard.classList.add('PokeCard');
 					PokeCardContainer.appendChild(PokeCard);
 					const PokemonSprite = document.createElement('img');
-					PokemonSprite.src = 'assets/LoadingSignal.gif';
+					PokemonSprite.src = LoadingSignal.src;
 
 					PokemonSprite.src = RawPokeData.sprites.front_default;
 					PokeCard.appendChild(PokemonSprite);
@@ -350,12 +350,16 @@ document.querySelector('#MobilePokeSorter').addEventListener('change', () => {
 	time++;
 	console.log(time);
 	console.log(document.querySelector('#MobilePokeSorter').value);
+	document.querySelector('#PokeSorter').value =
+		document.querySelector('#MobilePokeSorter').value;
 	Create(time, 'left');
 });
 
 document.querySelector('#PokeSorter').addEventListener('change', () => {
 	time++;
 	console.log(time);
-	console.log(document.querySelector('#MobilePokeSorter').value);
+	console.log(document.querySelector('#PokeSorter').value);
+	document.querySelector('#MobilePokeSorter').value =
+		document.querySelector('#PokeSorter').value;
 	Create(time, 'right');
 });
