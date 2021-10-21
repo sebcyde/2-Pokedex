@@ -189,12 +189,10 @@ div.PokeCard {
   background-size: cover;
   box-shadow: 5px 5px 5px black;
   background-image: url(https://media.istockphoto.com/vectors/black-honeycomb-tiles-hexagon-geometry-pattern-minimal-black-of-for-vector-id1206976209?k=20&m=1206976209&s=170667a&w=0&h=JimguaF_urwNBzP5H_a9U-FQpR62y9FblgTAsDaNB54=);
-  z-index: 1;
-}
-div.PokeCard img {
-  height: auto;
-  width: 20%;
-  margin-left: 1em;
+  z-index: 1 img;
+  z-index-height: auto;
+  z-index-width: 20%;
+  z-index-margin-left: 1em;
 }
 div.PokeCard span {
   width: 80%;
@@ -234,6 +232,7 @@ div.PokeCard:hover {
   height: 14rem;
   cursor: pointer;
   box-shadow: 6px 6px 6px black;
+  z-index: 1;
 }
 div.PokeCard:hover h3 {
   font-size: 3em;
@@ -245,6 +244,7 @@ div.Selected {
   height: 14rem;
   cursor: pointer;
   box-shadow: 6px 6px 6px black;
+  z-index: 1;
 }
 div.Selected h3 {
   font-size: 3em;
@@ -403,16 +403,19 @@ div.Selected h3 {
   height: fit-content;
   border: 2px outset silver;
   border-radius: 10px;
+  border-bottom: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   font-size: 1.3em;
   background-color: black;
   color: white;
   background-image: url(https://www.advancemillwrights.com/wp-content/uploads/2016/05/background-industrial.png);
   background-size: cover;
-  margin-bottom: 1em;
+  margin-bottom: 0px;
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -422,7 +425,7 @@ div.Selected h3 {
     height: -moz-fit-content;
     height: fit-content;
     border: 2px outset silver;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
     font-size: 1.3em;
     background-color: black;
     color: white;
@@ -440,7 +443,7 @@ div.Selected h3 {
 
 #mbps {
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   width: 100%;
   z-index: 2 !important;
 }

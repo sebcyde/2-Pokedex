@@ -6,7 +6,7 @@ const PokemonNameList = [];
 document.querySelector('.ENL2H').selected = true;
 document.querySelector('.MENL2H').selected = true;
 
-document.querySelector('#mbps').addEventListener('click', () => {
+document.querySelector('#btt').addEventListener('click', () => {
 	document.querySelector('.LeftSection').scrollTo(0, 0);
 	console.log('Clicked');
 });
