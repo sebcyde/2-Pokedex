@@ -136,6 +136,7 @@ body section.RightSection div.PokeDetailContainer .carousel-item p {
 }
 body section.RightSection div.PokeDetailContainer .carousel {
   margin-bottom: 4em;
+  margin-top: 1em;
 }
 body section.RightSection #RightLoadingSignal {
   margin-left: auto;
