@@ -4,6 +4,7 @@ const PokeDexEntryNumbers = [];
 const PokemonNameList = [];
 
 document.querySelector('.ENL2H').selected = true;
+document.querySelector('.MENL2H').selected = true;
 
 document.querySelector('#mbps').addEventListener('click', () => {
 	document.querySelector('.LeftSection').scrollTo(0, 0);
@@ -12,11 +13,58 @@ document.querySelector('#mbps').addEventListener('click', () => {
 
 let time = 1;
 
-function Create(time) {
+function Create(time, selector) {
 	axios
 		.get('https://pokeapi.co/api/v2/pokemon?limit=1118')
 		.then((results) => {
-			if (time > 1) {
+			if (time > 1 && selector == 'left') {
+				let PC = document.querySelector('div.PokeCardContainer');
+				let PCAll = document.querySelectorAll('div.PokeCardContainer');
+				PCAll.forEach((C) => {
+					C.classList.add('Hidden');
+				});
+				document.getElementById('LoadingSignal').classList.remove('Hidden');
+
+				if (document.querySelector('.MENH2L').selected === true) {
+					if (
+						document.querySelector('section#LeftSection').contains(PC) === true
+					) {
+						PCAll.forEach((Card) => {
+							Card.parentNode.removeChild(Card);
+						});
+					}
+					console.log('Sorted by entry number H2L');
+					results.data.results.reverse();
+				} else if (document.querySelector('.MENL2H').selected === true) {
+					if (
+						document.querySelector('section#LeftSection').contains(PC) === true
+					) {
+						PCAll.forEach((Card) => {
+							Card.parentNode.removeChild(Card);
+						});
+					}
+				} else if (document.querySelector('.MAA2Z').selected === true) {
+					if (
+						document.querySelector('section#LeftSection').contains(PC) === true
+					) {
+						PCAll.forEach((Card) => {
+							Card.parentNode.removeChild(Card);
+						});
+					}
+					results.data.results.sort((a, b) => (a.name > b.name ? 1 : -1));
+				} else if (document.querySelector('.MAZ2A').selected === true) {
+					if (
+						document.querySelector('section#LeftSection').contains(PC) === true
+					) {
+						PCAll.forEach((Card) => {
+							Card.parentNode.removeChild(Card);
+						});
+					}
+					results.data.results.sort((a, b) => (b.name > a.name ? 1 : -1));
+				}
+			}
+
+			if (time > 1 && selector == 'right') {
 				let PC = document.querySelector('div.PokeCardContainer');
 				let PCAll = document.querySelectorAll('div.PokeCardContainer');
 				PCAll.forEach((C) => {
@@ -136,6 +184,27 @@ function Create(time) {
 						const AllEDDivs = document.querySelectorAll('div.SelectedMarker');
 						console.log(AllPokeCards);
 
+						if (document.querySelector('#C1').classList.contains('Hidden')) {
+							document.querySelector('#C1').classList.remove('Hidden');
+						}
+
+						if (document.querySelector('#C2').classList.contains('Hidden')) {
+							document.querySelector('#C2').classList.remove('Hidden');
+						}
+
+						if (document.querySelector('#C3').classList.contains('Hidden')) {
+							document.querySelector('#C3').classList.remove('Hidden');
+						}
+
+						if (document.querySelector('#C4').classList.contains('Hidden')) {
+							document.querySelector('#C4').classList.remove('Hidden');
+						}
+
+						document.querySelector('.FrontImage').src = '';
+						document.querySelector('.BackImage').src = '';
+						document.querySelector('.ShinyFront').src = '';
+						document.querySelector('.ShinyBack').src = '';
+
 						Array.from(AllPokeCards).map((PCard) => {
 							if (PCard.classList.contains('Selected')) {
 								PCard.classList.remove('Selected');
@@ -173,15 +242,37 @@ function Create(time) {
 												'.RightEntryNumber'
 											).innerText = `Entry Number #${Info.id}`;
 
-											document.querySelector('.FrontImage').src =
-												Info.sprites.front_default;
+											if (Info.sprites.front_default == null) {
+												document.querySelector('.FrontImage').src =
+													'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+											} else {
+												document.querySelector('.FrontImage').src =
+													Info.sprites.front_default;
+											}
 
-											document.querySelector('.BackImage').src =
-												Info.sprites.back_default;
-											document.querySelector('.ShinyFront').src =
-												Info.sprites.front_shiny;
-											document.querySelector('.ShinyBack').src =
-												Info.sprites.back_shiny;
+											if (Info.sprites.back_default == null) {
+												document.querySelector('.BackImage').src =
+													'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+											} else {
+												document.querySelector('.BackImage').src =
+													Info.sprites.back_default;
+											}
+
+											if (Info.sprites.front_shiny == null) {
+												document.querySelector('.ShinyFront').src =
+													'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+											} else {
+												document.querySelector('.ShinyFront').src =
+													Info.sprites.front_shiny;
+											}
+
+											if (Info.sprites.back_shiny == null) {
+												document.querySelector('.ShinyBack').src =
+													'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png';
+											} else {
+												document.querySelector('.ShinyBack').src =
+													Info.sprites.back_shiny;
+											}
 
 											const RT1 = document.createElement('div');
 											RT1.classList.add(Info.types[0].type.name);
@@ -259,5 +350,12 @@ document.querySelector('#MobilePokeSorter').addEventListener('change', () => {
 	time++;
 	console.log(time);
 	console.log(document.querySelector('#MobilePokeSorter').value);
-	Create(time);
+	Create(time, 'left');
+});
+
+document.querySelector('#PokeSorter').addEventListener('change', () => {
+	time++;
+	console.log(time);
+	console.log(document.querySelector('#MobilePokeSorter').value);
+	Create(time, 'right');
 });
