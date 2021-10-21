@@ -10,15 +10,6 @@ document.querySelector('#mbps').addEventListener('click', () => {
 	console.log('Clicked');
 });
 
-function zoomOutMobile() {
-	var viewport = document.querySelector('meta[name="viewport"]');
-
-	if (viewport) {
-		viewport.content = 'initial-scale=0.1';
-		viewport.content = 'width=1200';
-	}
-}
-
 let time = 1;
 
 function Create(time) {
@@ -43,7 +34,6 @@ function Create(time) {
 					}
 					console.log('Sorted by entry number H2L');
 					results.data.results.reverse();
-					zoomOutMobile();
 				} else if (document.querySelector('.ENL2H').selected === true) {
 					if (
 						document.querySelector('section#LeftSection').contains(PC) === true
@@ -52,7 +42,6 @@ function Create(time) {
 							Card.parentNode.removeChild(Card);
 						});
 					}
-					zoomOutMobile();
 				} else if (document.querySelector('.AA2Z').selected === true) {
 					if (
 						document.querySelector('section#LeftSection').contains(PC) === true
@@ -62,7 +51,6 @@ function Create(time) {
 						});
 					}
 					results.data.results.sort((a, b) => (a.name > b.name ? 1 : -1));
-					zoomOutMobile();
 				} else if (document.querySelector('.AZ2A').selected === true) {
 					if (
 						document.querySelector('section#LeftSection').contains(PC) === true
@@ -72,7 +60,6 @@ function Create(time) {
 						});
 					}
 					results.data.results.sort((a, b) => (b.name > a.name ? 1 : -1));
-					zoomOutMobile();
 				}
 			}
 
