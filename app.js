@@ -3,8 +3,6 @@
 const PokeDexEntryNumbers = [];
 const PokemonNameList = [];
 
-screen.orientation.lock(portrait - primary);
-
 document.querySelector('.ENL2H').selected = true;
 document.querySelector('.MENL2H').selected = true;
 
